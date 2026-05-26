@@ -1,0 +1,8 @@
+--- a/dist/main.js
++++ b/dist/main.js
+@@ -268274,6 +268274,7 @@
+ sendAttachment(e,t){
++tp().log("[FIX] RAW chatGuid: "+String(e.request&&e.request.body&&e.request.body.chatGuid),"debug");
++var qsGuid=e.request&&e.request.query&&e.request.query.chatGuid;
++if(qsGuid){tp().log("[FIX] Using chatGuid from URL query: "+qsGuid,"debug");e.request.body.chatGuid=qsGuid;}
+ const{files:a}=e.request,{tempGuid:i,chatGuid:s,name:r,method:n,subject:o,selectedMessageGuid:l,partIndex:c,effectId:d,isAudioMessage:u}=e.request?.body??{}
